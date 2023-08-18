@@ -25,7 +25,8 @@ def main():
         if len(csv_subdirs) > 0:
             dfs = []
             for subdir in csv_subdirs:
-                csv_files = [f for f in os.listdir(os.path.join(temp_dir, subdir)) if f.startswith("data2_") and f.endswith(".csv")]
+                #Uncomment the following if the file starts with letters data2_ before the time integer
+                #csv_files = [f for f in os.listdir(os.path.join(temp_dir, subdir)) if f.startswith("data2_") and f.endswith(".csv")]
                 csv_files.sort(key=lambda x: int(x.split("_")[1].split(".")[0]))  # Sort files based on time
                 for csv_file in csv_files:
                     df = pd.read_csv(os.path.join(temp_dir, subdir, csv_file), header=None, skiprows=1)
