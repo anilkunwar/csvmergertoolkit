@@ -7,7 +7,8 @@ import io
 # Define the Streamlit app
 def main():
     st.title("CSV Merger App")
-
+    
+    upload_filename = st.sidebar.text_input("Enter the actual randomname before underscore sign", data2_ ")
     # Upload the zip folder
     uploaded_file = st.file_uploader("Upload a zip folder containing randomname_*.csv files", type="zip")
     # Input for the user to specify the downloaded file name
@@ -30,7 +31,7 @@ def main():
             dfs = []
             for subdir in csv_subdirs:
                 #Uncomment the following if the file starts with letters data2_ before the time integer
-                #csv_files = [f for f in os.listdir(os.path.join(temp_dir, subdir)) if f.startswith("data2_") and f.endswith(".csv")]
+                csv_files = [f for f in os.listdir(os.path.join(temp_dir, subdir)) if f.startswith(f"{upload_filename}") and f.endswith(".csv")]
                 csv_files.sort(key=lambda x: int(x.split("_")[1].split(".")[0]))  # Sort files based on time
                 for csv_file in csv_files:
                     df = pd.read_csv(os.path.join(temp_dir, subdir, csv_file), header=None, skiprows=1)
