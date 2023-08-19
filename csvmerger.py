@@ -10,6 +10,8 @@ def main():
 
     # Upload the zip folder
     uploaded_file = st.file_uploader("Upload a zip folder containing data2_*.csv files", type="zip")
+    # Input for the user to specify the downloaded file name
+    download_filename = st.sidebar.text_input("Enter the downloaded file name", "merged_data.csv")
 
     if uploaded_file is not None:
         # Extract the uploaded zip file to a temporary directory
@@ -50,7 +52,8 @@ def main():
                 merged_df.columns = column_names
 
                 # Create a download link for the merged CSV file
-                st.download_button("Download Merged CSV", data=merged_df.to_csv(index=False).encode(), file_name="merged_data.csv", mime="text/csv")
+                #st.download_button("Download Merged CSV", data=merged_df.to_csv(index=False).encode(), file_name="merged_data.csv", mime="text/csv")
+                st.download_button("Download Merged CSV", data=merged_df.to_csv(index=False).encode(), file_name=download_filename, mime="text/csv")
             else:
                 st.warning("No valid CSV files found in the uploaded folder.")
         else:
