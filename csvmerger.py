@@ -11,7 +11,8 @@ def main():
     # Upload the zip folder
     uploaded_file = st.file_uploader("Upload a zip folder containing randomname_*.csv files", type="zip")
     # Input for the user to specify the downloaded file name
-    download_filename = st.text_input("Enter the downloaded file name", "merged_data.csv")
+    download_filename = st.sidebar.text_input("Enter the downloaded file name", "merged_data.csv")
+    st.write('The output filename is', download_filename)
     #download_filename = st.sidebar.text_input("Enter the downloaded file name")
 
     if uploaded_file is not None:
