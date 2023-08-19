@@ -15,7 +15,7 @@ def main():
     #download_filename = st.sidebar.text_input("Enter the downloaded file name", "merged_data.csv")
     #st.write('The output filename is', download_filename)
     #download_filename = st.sidebar.text_input("Enter the downloaded file name")
-    download_filename = f"merged_{upload_filename}"
+    download_filename = f"merged_{upload_filename}.csv"
 
     if uploaded_file is not None:
         # Extract the uploaded zip file to a temporary directory
