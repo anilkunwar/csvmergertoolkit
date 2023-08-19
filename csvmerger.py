@@ -8,7 +8,7 @@ import io
 def main():
     st.title("CSV Merger App")
     
-    upload_filename = st.sidebar.text_input("Enter the actual randomname before underscore sign", data2 ")
+    upload_filename = st.sidebar.text_input("Enter the actual randomname before underscore sign", "data2 ")
     # Upload the zip folder
     uploaded_file = st.file_uploader("Upload a zip folder containing randomname_*.csv files", type="zip")
     # Input for the user to specify the downloaded file name
